@@ -2,6 +2,7 @@
 import express from "express";
 import userRouter from "./src/user/user.routes.js";
 import postRouter from "./src/post-upload/post-uploded.routes.js";
+import commentsRouter from "./src/comments/comments.routes.js";
 import ErrorMiddleware from "./src/Middleware/error-middleware/error.middleware.js";
 import dotenv from "dotenv";
 import multer from "multer";
@@ -14,6 +15,7 @@ server.use(express.urlencoded({ extended: true }));
 server.use(multer().none());
 server.use("/api", userRouter);
 server.use("/api/posts", postRouter);
+server.use("/api/comments", commentsRouter);
 // this is global error handler
 server.use(ErrorMiddleware.globalErrorHandler);
 const Port = 5000;
