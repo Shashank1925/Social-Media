@@ -6,6 +6,7 @@ const postRouter = express.Router();
 postRouter.get("/all", PostUploadedController.getAllPosts);
 // this route is for all posts with JWT authentication for secific user
 postRouter.get("/", jwtAuth, PostUploadedController.getAllPostsOfUser);
+// here in this route id is about post id
 postRouter.get("/:id", jwtAuth, PostUploadedController.getSpecificPost);
 postRouter.post("/", jwtAuth, PostUploadedController.createPost);
 postRouter.delete("/:id", jwtAuth, PostUploadedController.deletePost);
