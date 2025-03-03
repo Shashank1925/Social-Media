@@ -1,9 +1,9 @@
 import multer from "multer";
 import path from "path";
 import fs from "fs";
-import ErrorMiddleware from "./error-middleware/error.middleware";
+import ErrorMiddleware from "./error-middleware/error.middleware.js";
 const location = path.join(process.cwd(), "src", "public", "uploads");
-if (!fs.exitsSync(location)) {
+if (!fs.existsSync(location)) {
     fs.mkdirSync(location, { recursive: true });
 }
 const storage = multer.diskStorage({

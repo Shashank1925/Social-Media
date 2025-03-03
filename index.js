@@ -7,14 +7,12 @@ import likesRouter from "./src/likes/likes.routes.js";
 import ErrorMiddleware from "./src/Middleware/error-middleware/error.middleware.js";
 // this is for dotenv which help in using env file
 import dotenv from "dotenv";
-import multer from "multer";
 dotenv.config();
 // create a server instance
 const server = express();
 // server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 // if using FormData in postman but sending only text credential so it help express to not use file type in form data 
-server.use(multer().none());
 // this is for user  router  
 server.use("/api", userRouter);
 // this is for post router

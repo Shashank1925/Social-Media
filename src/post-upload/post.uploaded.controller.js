@@ -6,11 +6,29 @@ export default class PostUploadedController {
             if (!req.userId) {
                 throw new ErrorMiddleware("Unauthorized: No user ID found", 401);
             }
-            const { caption, imageUrl } = req.body;
-            if (!caption || !imageUrl) {
-                throw new ErrorMiddleware("Please provide caption and imageUrl", 400);
+            const { caption, imageUrls } = req.body;
+            if (!caption) {
+                throw new ErrorMiddleware("Please provide caption ", 400);
             }
-            const posts = PostUploadedModel.postsData(req.userId, caption, imageUrl, next);
+            let uploadedImages = [];
+            if (req.files && req.files.length > 0) {
+                uploadedImages = req.files.map(file => `/uploads/${file.filename}`);
+            } else {
+                throw new ErrorMiddleware("Please upload at least one image", 400);
+            }
+            const finalImageUrls = [];
+            if (imageUrls) {
+                if (typeof imageUrls === "string") {
+                    finalImageUrls.push(imageUrls);
+                } else if (Array.isArray(imageUrls)) {
+                    finalImageUrls.push(...imageUrls);
+                }
+            }
+            finalImageUrls.push(...uploadedImages);
+            if (finalImageUrls.length === 0) {
+                throw new ErrorMiddleware("Please upload at least one image or provide an image URL", 400);
+            }
+            const posts = PostUploadedModel.postsData(req.userId, caption, finalImageUrls, next);
             console.log("posts", posts);
             if (!posts) {
                 throw new ErrorMiddleware("No posts found", 404);
@@ -120,7 +138,11 @@ export default class PostUploadedController {
             if (!specificPost) {
                 throw new ErrorMiddleware("No post found", 404);
             }
-            const updatedPost = PostUploadedModel.updatePost(id, caption, imageUrl);
+            let newImageUrls = specificPost.imageUrl || [];
+            if (req.files && req.files.length > 0) {
+                newImageUrls = req.files.map(file => `/uploads/${file.filename}`);
+            }
+            const updatedPost = PostUploadedModel.updatePost(id, caption, newImageUrls);
             if (!updatedPost) {
                 throw new ErrorMiddleware("No post found", 404);
             }
