@@ -1,2 +1,21 @@
-{"level":"info","message":"2025-03-04 10:08:03 - POST / - Response:\"post created successfully\" \"This is my fresh post\"","service":"Post-service logging"}
-{"level":"info","message":"2025-03-04 10:09:09 - POST / - Response:\"Message:post created successfully\" Posts:\"This is my fresh post\"","service":"Post-service logging"}
+ {"level":"info","message":"2025-03-04 11:03:22 - POST / - Response:\"Message:post created successfully\" Posts:\"This is my fresh post\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:03:35 - POST / - Response:\"Message:post created successfully\" Posts:\"This is my second post\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:03:44 - GET / - Response:\"Message:posts fetched successfully\" Posts:\"No caption in Posts\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:03:51 - POST /api/bookmarks/123%0A - Response:\"Message:Cannot read properties of undefined (reading 'id')\" Posts:\"No caption in Posts\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:09:30 - POST / - Response:\"Message:post created successfully\" Posts:\"This is my second post\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:09:42 - POST /api/bookmarks/123%0A - Response:\"Message:400\" Posts:\"No caption in Posts\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:12:11 - POST / - Response:\"Message:post created successfully\" Posts:\"This is my second post\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:12:23 - POST /api/bookmarks/123%0A - Response:\"Message:400\" Posts:\"No caption in Posts\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:16:46 - POST / - Response:\"Message:post created successfully\" Posts:\"This is my second post\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:17:03 - POST /api/bookmarks/123%0A - Response:\"Message:Invalid request\" Posts:\"No caption in Posts\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:21:30 - POST / - Response:\"Message:post created successfully\" Posts:\"This is my second post\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:21:42 - POST /api/bookmarks/123%0A - Response:\"Message:Invalid userId\" Posts:\"No caption in Posts\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:30:11 - POST / - Response:\"Message:post created successfully\" Posts:\"This is my second post\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:30:22 - POST /api/bookmarks/123%0A - Response:\"Message:Invalid userId\" Posts:\"No caption in Posts\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:33:56 - POST / - Response:\"Message:post created successfully\" Posts:\"This is my second post\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:34:05 - POST /123%0A - Response:\"Message:Post bookmarked successfully\" Posts:\"No caption in Posts\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:35:23 - GET /api/bookmarks - Response:\"Message:Cannot read properties of undefined (reading 'id')\" Posts:\"No caption in Posts\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:36:43 - POST / - Response:\"Message:post created successfully\" Posts:\"This is my second post\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:36:51 - POST /123%0A - Response:\"Message:Post bookmarked successfully\" Posts:\"No caption in Posts\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:37:00 - GET / - Response:\"Message:No message in response\" Posts:\"No caption in Posts\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:37:48 - DELETE /123 - Response:\"Message:Bookmark removed successfully\" Posts:\"No caption in Posts\"","service":"Post-service logging"}
