@@ -1,0 +1,2 @@
+{"level":"info","message":"2025-03-04 10:08:03 - POST / - Response:\"post created successfully\" \"This is my fresh post\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 10:09:09 - POST / - Response:\"Message:post created successfully\" Posts:\"This is my fresh post\"","service":"Post-service logging"}

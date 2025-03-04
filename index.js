@@ -5,6 +5,7 @@ import postRouter from "./src/post-upload/post-uploded.routes.js";
 import commentsRouter from "./src/comments/comments.routes.js";
 import likesRouter from "./src/likes/likes.routes.js";
 import ErrorMiddleware from "./src/Middleware/error-middleware/error.middleware.js";
+import loggerMiddleware from "./src/Middleware/logger.middleware.js";
 // this is for dotenv which help in using env file
 import dotenv from "dotenv";
 dotenv.config();
@@ -12,6 +13,8 @@ dotenv.config();
 const server = express();
 // server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
+// this is for logger middleware
+server.use(loggerMiddleware);
 // if using FormData in postman but sending only text credential so it help express to not use file type in form data 
 // this is for user  router  
 server.use("/api", userRouter);

@@ -15,6 +15,7 @@ export default class PostUploadedModel {
             if (!userId) {
                 throw new ErrorMiddleware("Unauthorized: No user ID found", 401);
             }
+            // this line ensures imageArray is an array, even if imageUrls is a single string
             const imageArray = Array.isArray(imageUrls) ? imageUrls : [imageUrls];
             const newPost = new PostUploadedModel(postId, userId, caption, imageArray);
             this.allPostsArray.push(newPost);
@@ -49,6 +50,7 @@ export default class PostUploadedModel {
         if (index === -1) {
             throw new ErrorMiddleware("Post not found", 404);
         }
+        // this line ensures imageArray is an array, even if imageUrls is a single string
         const imageArray = Array.isArray(imageUrls) ? imageUrls : [imageUrls];
         this.allPostsArray[index] = {
             ...this.allPostsArray[index],
