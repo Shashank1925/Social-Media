@@ -12,4 +12,7 @@ postRouter.get("/:id", jwtAuth, PostUploadedController.getSpecificPost);
 postRouter.post("/", jwtAuth, upload.array("files", 5), PostUploadedController.createPost);
 postRouter.delete("/:id", jwtAuth, PostUploadedController.deletePost);
 postRouter.put("/:id", jwtAuth, upload.array("files", 5), PostUploadedController.updatePost);
+// there are rotues for draft and archived posts 
+postRouter.post("/draft", jwtAuth, upload.array("files", 5), PostUploadedController.saveAsDraft);
+postRouter.put("/archive/:id", jwtAuth, upload.array("files", 5), PostUploadedController.archivePost);
 export default postRouter;

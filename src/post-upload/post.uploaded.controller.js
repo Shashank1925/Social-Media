@@ -155,4 +155,54 @@ export default class PostUploadedController {
             next(error);
         }
     }
+    static saveAsDraft(req, res, next) {
+        try {
+            if (!req.userId) {
+                throw new ErrorMiddleware("Unauthorized: No user ID found", 401);
+            }
+
+            const { caption, imageUrls } = req.body;
+            if (!caption) {
+                throw new ErrorMiddleware("Please provide a caption", 400);
+            }
+
+            let uploadedImages = [];
+            if (req.files && req.files.length > 0) {
+                uploadedImages = req.files.map(file => `/uploads/${file.filename}`);
+            }
+
+            const newPost = PostUploadedModel.postsData(req.userId, caption, [...uploadedImages, ...(imageUrls || [])], "draft");
+            res.status(201).json({
+                message: "Post saved as draft successfully",
+                post: newPost,
+            });
+        } catch (error) {
+            next(error);
+        }
+    }
+    static archivePost(req, res, next) {
+        try {
+            if (!req.userId) {
+                throw new ErrorMiddleware("Unauthorized: No user ID found", 401);
+            }
+
+            const id = req.params.id;
+            if (!id) {
+                throw new ErrorMiddleware("Please provide post ID", 400);
+            }
+
+            const archivedPost = PostUploadedModel.archivePost(id, req.userId);
+            if (!archivedPost) {
+                throw new ErrorMiddleware("No post found or unauthorized", 404);
+            }
+
+            res.status(200).json({
+                message: "Post archived successfully",
+                post: archivedPost,
+            });
+        } catch (error) {
+            next(error);
+        }
+    }
+
 }

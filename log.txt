@@ -19,3 +19,7 @@
 {"level":"info","message":"2025-03-04 11:36:51 - POST /123%0A - Response:\"Message:Post bookmarked successfully\" Posts:\"No caption in Posts\"","service":"Post-service logging"}
 {"level":"info","message":"2025-03-04 11:37:00 - GET / - Response:\"Message:No message in response\" Posts:\"No caption in Posts\"","service":"Post-service logging"}
 {"level":"info","message":"2025-03-04 11:37:48 - DELETE /123 - Response:\"Message:Bookmark removed successfully\" Posts:\"No caption in Posts\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:57:54 - POST / - Response:\"Message:post created successfully\" Posts:\"This is my second post\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 11:59:54 - POST /api/posts/draft - Response:\"Message:Please provide a caption\" Posts:\"No caption in Posts\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 12:05:51 - POST / - Response:\"Message:post created successfully\" Posts:\"This is my second post\"","service":"Post-service logging"}
+{"level":"info","message":"2025-03-04 12:06:08 - POST /draft - Response:\"Message:Post saved as draft successfully\" Posts:\"No caption in Posts\"","service":"Post-service logging"}

@@ -9,7 +9,7 @@ export default class PostUploadedModel {
         this.imageUrls = imageUrls;
     }
     static allPostsArray = [];
-    static postsData(userId, caption, imageUrls, next) {
+    static postsData(userId, caption, imageUrls, status = "published", next) {
         try {
             const postId = uuidv4();
             if (!userId) {
@@ -18,6 +18,7 @@ export default class PostUploadedModel {
             // this line ensures imageArray is an array, even if imageUrls is a single string
             const imageArray = Array.isArray(imageUrls) ? imageUrls : [imageUrls];
             const newPost = new PostUploadedModel(postId, userId, caption, imageArray);
+            newPost.status = status;
             this.allPostsArray.push(newPost);
             return newPost;
 
@@ -57,6 +58,15 @@ export default class PostUploadedModel {
             caption,
             imageUrls: imageArray,
         };
+        return this.allPostsArray[index];
+    }
+    static archivePost(id, userId) {
+        const index = this.allPostsArray.findIndex((post) => post.postId === id && post.userId === userId);
+        if (index === -1) {
+            return null;
+        }
+
+        this.allPostsArray[index].status = "archived";
         return this.allPostsArray[index];
     }
 
